@@ -1,0 +1,10 @@
+#!/bin/sh
+if <PATH TO FIRST SCRIPT>; then
+echo "It's all good, want some coffee?"
+else
+        curl --header 'Access-Token: <PUSHBULLET ACCESS TOKEN>' \
+        --header 'Content-Type: application/json' \
+        --data-binary '{"body":"YOUR SITE is currently down.","title":"Down: YOUR SITE","type":"note"}' \
+        --request POST \
+        https://api.pushbullet.com/v2/pushes
+fi
